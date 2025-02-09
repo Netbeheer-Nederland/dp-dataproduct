@@ -1,0 +1,7 @@
+_commit: v0.7.8
+_src_path: gh:Netbeheer-Nederland/tmpl-dp
+description: Information model for the Dataproduct data product.
+name: dp-dataproduct
+org: Netbeheer-Nederland
+schema_base_uri: http://data.netbeheernederland.nl/data-product
+title: Dataproduct

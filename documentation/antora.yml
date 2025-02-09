@@ -1,0 +1,5 @@
+name: dp-dataproduct
+title: Dataproduct
+version: true
+nav:
+- modules/ROOT/nav.adoc
