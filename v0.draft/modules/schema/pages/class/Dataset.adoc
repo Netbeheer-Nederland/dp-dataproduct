@@ -1,0 +1,423 @@
+= `Dataset`
+:toclevels: 4
+
+
++++A conceptual entity that represents the information published.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| http://www.w3.org/ns/dcat#Dataset[`dcat:Dataset`]
+
+
+
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/Dataproduct[`nbnl:Dataproduct`]
+
+
+
+!===
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/Resource.adoc[`Resource`]
+** *`Dataset`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+Dataset {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+Distribution {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+
+Dataset -> Distribution: dataset_distribution
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinality | Type | Description
+
+| <<access_rights,`access_rights`>>
+| 1
+| xref::enumeration/RightsStatement.adoc[`RightsStatement`]
+| +++Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public.+++
+
+| <<conforms_to,`conforms_to`>>
+| 1
+| xref::enumeration/Standard.adoc[`Standard`]
+| +++An established (technical) standard to which the Data Service conforms. Use the URL for the NBNL data product.+++
+
+| <<contact_point,`contact_point`>>
+| 1
+| xref::enumeration/Kind.adoc[`Kind`]
+| +++Contact information that can be used for sending comments about the Dataset.+++
+
+| <<description,`description`>>
+| 1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++A free-text account of the Dataset.+++
+
+| <<license,`license`>>
+| 1
+| xref::enumeration/LicenseDocument.adoc[`LicenseDocument`]
+| +++A licence under which the Distribution is made available.+++
+
+| <<publisher,`publisher`>>
+| 1
+| xref::enumeration/Agent.adoc[`Agent`]
+| +++An entity responsible for making the resource available.+++
+
+| <<title,`title`>>
+| 1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++A name given to the resource.+++
+
+| <<version,`version`>>
+| 1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++The version indicator (name or identifier) of a resource.+++
+
+| <<dataset_distribution,`dataset_distribution`>>
+| 1..*
+| xref::class/Distribution.adoc[`Distribution`]
+| +++An available Distribution for the Dataset.+++
+
+| <<creator,`creator`>>
+| 0..1
+| xref::enumeration/Agent.adoc[`Agent`]
+| +++An entity responsible for producing the dataset.+++
+
+| <<documentation,`documentation`>>
+| 0..1
+| xref::enumeration/Document.adoc[`Document`]
+| +++A page or document about this Dataset.+++
+
+| <<language,`language`>>
+| 0..1
+| xref::enumeration/LinguisticSystem.adoc[`LinguisticSystem`]
+| +++A language of the Dataset.+++
+
+| <<identifier,`identifier`>>
+| 0..1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+|===
+
+'''
+
+
+//[discrete]
+[#access_rights]
+=== `access_rights`
++++Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/accessRights[`dct:accessRights`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/RightsStatement.adoc[`RightsStatement`]
+
+
+|===
+
+//[discrete]
+[#conforms_to]
+=== `conforms_to`
++++An established (technical) standard to which the Data Service conforms. Use the URL for the NBNL data product.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/conformsTo[`dct:conformsTo`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Standard.adoc[`Standard`]
+
+
+|===
+
+//[discrete]
+[#contact_point]
+=== `contact_point`
++++Contact information that can be used for sending comments about the Dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#contactPoint[`dcat:contactPoint`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Kind.adoc[`Kind`]
+
+
+|===
+
+//[discrete]
+[#creator]
+=== `creator`
++++An entity responsible for producing the dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/creator[`dct:creator`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Agent.adoc[`Agent`]
+
+
+|===
+
+//[discrete]
+[#dataset_distribution]
+=== `dataset_distribution`
++++An available Distribution for the Dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#distribution[`dcat:distribution`]
+| Cardinality
+| 1..*
+| Type
+| xref::class/Distribution.adoc[`Distribution`]
+
+
+|===
+
+//[discrete]
+[#description]
+=== `description`
++++A free-text account of the Dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/description[`dct:description`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+//[discrete]
+[#documentation]
+=== `documentation`
++++A page or document about this Dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://xmlns.com/foaf/0.1/page[`foaf:page`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Document.adoc[`Document`]
+
+
+|===
+
+//[discrete]
+[#identifier]
+=== `identifier`
++++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+| Inherited from
+| xref::class/Resource.adoc[`Resource`]
+
+
+|===
+
+//[discrete]
+[#language]
+=== `language`
++++A language of the Dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/language[`dct:language`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/LinguisticSystem.adoc[`LinguisticSystem`]
+
+
+|===
+
+//[discrete]
+[#license]
+=== `license`
++++A licence under which the Distribution is made available.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/license[`dct:license`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/LicenseDocument.adoc[`LicenseDocument`]
+
+
+|===
+
+//[discrete]
+[#publisher]
+=== `publisher`
++++An entity responsible for making the resource available.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/publisher[`dct:publisher`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Agent.adoc[`Agent`]
+
+
+|===
+
+//[discrete]
+[#title]
+=== `title`
++++A name given to the resource.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/title[`dct:title`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+//[discrete]
+[#version]
+=== `version`
++++The version indicator (name or identifier) of a resource.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#version[`dcat:version`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+

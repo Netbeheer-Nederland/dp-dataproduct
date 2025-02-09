@@ -1,0 +1,64 @@
+= `Resource`
+:toclevels: 4
+
+
++++Anything described by RDF.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| http://www.w3.org/ns/dcat#Resource[`dcat:Resource`]
+
+
+
+
+|===
+
+== Class hierarchy
+* *`Resource`*
+ ** xref::class/Catalog.adoc[`Catalog`]
+ ** xref::class/DataService.adoc[`DataService`]
+ ** xref::class/Dataset.adoc[`Dataset`]
+ ** xref::class/Distribution.adoc[`Distribution`]
+
+
+== Slots
+
+
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinality | Type | Description
+
+| <<identifier,`identifier`>>
+| 0..1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+|===
+
+'''
+
+
+//[discrete]
+[#identifier]
+=== `identifier`
++++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+

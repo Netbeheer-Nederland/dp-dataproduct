@@ -1,0 +1,48 @@
+= `FormatKind`
+:toclevels: 4
+
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `csv`
+| http://publications.europa.eu/resource/authority/file-type/CSV[`ft:CSV`]
+| n/a
+
+| `json`
+| http://publications.europa.eu/resource/authority/file-type/JSON[`ft:JSON`]
+| n/a
+
+| `json_ld`
+| http://publications.europa.eu/resource/authority/file-type/JSON_LD[`ft:JSON_LD`]
+| n/a
+
+| `parquet`
+| http://publications.europa.eu/resource/authority/file-type/PARQUET[`ft:PARQUET`]
+| n/a
+
+| `rdf`
+| http://publications.europa.eu/resource/authority/file-type/RDF[`ft:RDF`]
+| n/a
+
+| `xlsx`
+| http://publications.europa.eu/resource/authority/file-type/XLSX[`ft:XLSX`]
+| n/a
+|===

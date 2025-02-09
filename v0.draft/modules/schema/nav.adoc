@@ -1,0 +1,26 @@
+[.truncate]
+* Information model
+** xref::index.adoc[Index]
+** Classes
+*** xref::class/Catalog.adoc[`Catalog` (root)]
+
+
+*** xref::class/DataService.adoc[`DataService`]
+
+
+
+*** xref::class/Dataset.adoc[`Dataset`]
+
+
+
+*** xref::class/Distribution.adoc[`Distribution`]
+
+
+
+*** xref::class/Resource.adoc[`Resource`]
+
+
+
+
+** Enumerations
+*** xref::enumeration/FormatKind.adoc[`FormatKind`]

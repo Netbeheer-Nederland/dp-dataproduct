@@ -1,0 +1,350 @@
+{
+    "$defs": {
+        "Catalog": {
+            "additionalProperties": false,
+            "description": "A catalogue or repository that hosts the Datasets or Data Services being described.",
+            "properties": {
+                "contact_point": {
+                    "description": "Contact information that can be used for sending comments about the Catalog.",
+                    "type": "string"
+                },
+                "data_service": {
+                    "description": "A DataService that is part of the Catalog.",
+                    "items": {
+                        "$ref": "#/$defs/DataService"
+                    },
+                    "type": "array"
+                },
+                "dataset": {
+                    "description": "A Dataset that is part of the Catalog.",
+                    "items": {
+                        "$ref": "#/$defs/Dataset"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free-text account of the Catalogue.",
+                    "type": "string"
+                },
+                "distribution": {
+                    "description": "A Distribution that is part of the Catalog.",
+                    "items": {
+                        "$ref": "#/$defs/Distribution"
+                    },
+                    "type": "array"
+                },
+                "identifier": {
+                    "description": "The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.",
+                    "type": "string"
+                },
+                "publisher": {
+                    "description": "An entity responsible for making the Catalog available.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "A name given to the Catalog.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "contact_point",
+                "dataset",
+                "distribution",
+                "data_service",
+                "description",
+                "publisher",
+                "title",
+                "identifier"
+            ],
+            "title": "Catalog",
+            "type": "object"
+        },
+        "DataService": {
+            "additionalProperties": false,
+            "description": "A collection of operations that provides access to one or more datasets or data processing functions.",
+            "properties": {
+                "access_rights": {
+                    "description": "Information regarding access or restrictions based on privacy, security, or other policies.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "contact_point": {
+                    "description": "Contact information that can be used for sending comments about the Data Service.",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "An entity responsible for producing the dataset.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endpoint_description": {
+                    "description": "A description of the services available via the end-points, including their operations, parameters etc.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endpoint_url": {
+                    "description": "The root location or primary endpoint of the service.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.",
+                    "type": "string"
+                },
+                "landing_page": {
+                    "description": "A web page that provides access to the Data Service and/or additional information.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "publisher": {
+                    "description": "An entity (organisation) responsible for making the Data Service available.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "A name given to the Data Service.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "contact_point",
+                "publisher",
+                "title",
+                "identifier"
+            ],
+            "title": "DataService",
+            "type": "object"
+        },
+        "Dataset": {
+            "additionalProperties": false,
+            "description": "A conceptual entity that represents the information published.",
+            "properties": {
+                "access_rights": {
+                    "description": "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public.",
+                    "type": "string"
+                },
+                "conforms_to": {
+                    "description": "An established (technical) standard to which the Data Service conforms. Use the URL for the NBNL data product.",
+                    "type": "string"
+                },
+                "contact_point": {
+                    "description": "Contact information that can be used for sending comments about the Dataset.",
+                    "type": "string"
+                },
+                "creator": {
+                    "description": "An entity responsible for producing the dataset.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dataset_distribution": {
+                    "description": "An available Distribution for the Dataset.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "description": {
+                    "description": "A free-text account of the Dataset.",
+                    "type": "string"
+                },
+                "documentation": {
+                    "description": "A page or document about this Dataset.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "identifier": {
+                    "description": "The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.",
+                    "type": "string"
+                },
+                "language": {
+                    "description": "A language of the Dataset.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "license": {
+                    "description": "A licence under which the Distribution is made available.",
+                    "type": "string"
+                },
+                "publisher": {
+                    "description": "An entity responsible for making the resource available.",
+                    "type": "string"
+                },
+                "title": {
+                    "description": "A name given to the resource.",
+                    "type": "string"
+                },
+                "version": {
+                    "description": "The version indicator (name or identifier) of a resource.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "access_rights",
+                "conforms_to",
+                "contact_point",
+                "dataset_distribution",
+                "description",
+                "license",
+                "publisher",
+                "title",
+                "version",
+                "identifier"
+            ],
+            "title": "Dataset",
+            "type": "object"
+        },
+        "Distribution": {
+            "additionalProperties": false,
+            "description": "A physical embodiment of the Dataset in a particular format.",
+            "properties": {
+                "access_service": {
+                    "description": "A data service that gives access to the distribution of the dataset.",
+                    "type": "string"
+                },
+                "access_url": {
+                    "description": "A URL that gives access to a Distribution of the Dataset.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "download_url": {
+                    "description": "A URL that is a direct link to a downloadable file in a given format.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "format": {
+                    "$ref": "#/$defs/FormatKind",
+                    "description": "The file format, physical medium, or dimensions of the resource."
+                },
+                "identifier": {
+                    "description": "The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.",
+                    "type": "string"
+                },
+                "linked_schemas": {
+                    "description": "An established schema to which the described Distribution conforms. Use the URL for the technical model (schema).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "access_service",
+                "linked_schemas",
+                "identifier"
+            ],
+            "title": "Distribution",
+            "type": "object"
+        },
+        "FormatKind": {
+            "description": "",
+            "enum": [
+                "json",
+                "json_ld",
+                "parquet",
+                "rdf",
+                "csv",
+                "xlsx"
+            ],
+            "title": "FormatKind",
+            "type": "string"
+        },
+        "Resource": {
+            "additionalProperties": false,
+            "description": "Anything described by RDF.",
+            "properties": {
+                "identifier": {
+                    "description": "The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "identifier"
+            ],
+            "title": "Resource",
+            "type": "object"
+        }
+    },
+    "$id": "http://data.netbeheernederland.nl/data-product/dp-dataproduct",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "A catalogue or repository that hosts the Datasets or Data Services being described.",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "contact_point": {
+            "description": "Contact information that can be used for sending comments about the Catalog.",
+            "type": "string"
+        },
+        "data_service": {
+            "description": "A DataService that is part of the Catalog.",
+            "items": {
+                "$ref": "#/$defs/DataService"
+            },
+            "type": "array"
+        },
+        "dataset": {
+            "description": "A Dataset that is part of the Catalog.",
+            "items": {
+                "$ref": "#/$defs/Dataset"
+            },
+            "type": "array"
+        },
+        "description": {
+            "description": "A free-text account of the Catalogue.",
+            "type": "string"
+        },
+        "distribution": {
+            "description": "A Distribution that is part of the Catalog.",
+            "items": {
+                "$ref": "#/$defs/Distribution"
+            },
+            "type": "array"
+        },
+        "identifier": {
+            "description": "The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.",
+            "type": "string"
+        },
+        "publisher": {
+            "description": "An entity responsible for making the Catalog available.",
+            "type": "string"
+        },
+        "title": {
+            "description": "A name given to the Catalog.",
+            "type": "string"
+        }
+    },
+    "required": [
+        "contact_point",
+        "dataset",
+        "distribution",
+        "data_service",
+        "description",
+        "publisher",
+        "title",
+        "identifier"
+    ],
+    "title": "dp-dataproduct",
+    "type": "object",
+    "version": "v0.draft"
+}

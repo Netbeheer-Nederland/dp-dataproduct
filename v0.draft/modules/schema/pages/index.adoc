@@ -1,0 +1,42 @@
+= Index
+
+== Classes
+
+[cols="1,2"]
+|===
+| Name | Description
+
+
+| xref::class/Catalog.adoc[`Catalog`]
+| +++A catalogue or repository that hosts the Datasets or Data Services being described.+++
+
+| xref::class/DataService.adoc[`DataService`]
+| +++A collection of operations that provides access to one or more datasets or data processing functions.+++
+
+| xref::class/Dataset.adoc[`Dataset`]
+| +++A conceptual entity that represents the information published.+++
+
+| xref::class/Distribution.adoc[`Distribution`]
+| +++A physical embodiment of the Dataset in a particular format.+++
+
+| xref::class/Resource.adoc[`Resource`]
+| +++Anything described by RDF.+++
+
+|===
+
+== Types
+
+No types are defined in the schema.
+
+
+== Enumerations
+
+
+[cols="1,2"]
+|===
+| Name | Description
+
+| xref::enumeration/FormatKind.adoc[`FormatKind`]
+| n/a
+
+|===

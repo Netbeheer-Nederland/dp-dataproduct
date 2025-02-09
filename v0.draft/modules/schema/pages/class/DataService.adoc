@@ -1,0 +1,257 @@
+= `DataService`
+:toclevels: 4
+
+
++++A collection of operations that provides access to one or more datasets or data processing functions.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| http://www.w3.org/ns/dcat#DataService[`dcat:DataService`]
+
+
+
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/Dataservice[`nbnl:Dataservice`]
+
+
+
+!===
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/Resource.adoc[`Resource`]
+** *`DataService`*
+
+
+== Slots
+
+
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinality | Type | Description
+
+| <<contact_point,`contact_point`>>
+| 1
+| xref::enumeration/Kind.adoc[`Kind`]
+| +++Contact information that can be used for sending comments about the Data Service.+++
+
+| <<publisher,`publisher`>>
+| 1
+| xref::enumeration/Agent.adoc[`Agent`]
+| +++An entity (organisation) responsible for making the Data Service available.+++
+
+| <<title,`title`>>
+| 1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++A name given to the Data Service.+++
+
+| <<access_rights,`access_rights`>>
+| 0..1
+| xref::enumeration/RightsStatement.adoc[`RightsStatement`]
+| +++Information regarding access or restrictions based on privacy, security, or other policies.+++
+
+| <<creator,`creator`>>
+| 0..1
+| xref::enumeration/Agent.adoc[`Agent`]
+| +++An entity responsible for producing the dataset.+++
+
+| <<endpoint_description,`endpoint_description`>>
+| 0..1
+| https://w3id.org/linkml/String[`string`]
+| +++A description of the services available via the end-points, including their operations, parameters etc.+++
+
+| <<endpoint_url,`endpoint_url`>>
+| 0..1
+| https://w3id.org/linkml/Uri[`uri`]
+| +++The root location or primary endpoint of the service.+++
+
+| <<landing_page,`landing_page`>>
+| 0..1
+| xref::enumeration/Document.adoc[`Document`]
+| +++A web page that provides access to the Data Service and/or additional information.+++
+
+| <<identifier,`identifier`>>
+| 0..1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+|===
+
+'''
+
+
+//[discrete]
+[#access_rights]
+=== `access_rights`
++++Information regarding access or restrictions based on privacy, security, or other policies.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/accessRights[`dct:accessRights`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/RightsStatement.adoc[`RightsStatement`]
+
+
+|===
+
+//[discrete]
+[#contact_point]
+=== `contact_point`
++++Contact information that can be used for sending comments about the Data Service.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#contactPoint[`dcat:contactPoint`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Kind.adoc[`Kind`]
+
+
+|===
+
+//[discrete]
+[#creator]
+=== `creator`
++++An entity responsible for producing the dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/creator[`dct:creator`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Agent.adoc[`Agent`]
+
+
+|===
+
+//[discrete]
+[#endpoint_description]
+=== `endpoint_description`
++++A description of the services available via the end-points, including their operations, parameters etc.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#endpointDescription[`dcat:endpointDescription`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/String[`string`]
+
+
+|===
+
+//[discrete]
+[#endpoint_url]
+=== `endpoint_url`
++++The root location or primary endpoint of the service.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#endpointURL[`dcat:endpointURL`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/Uri[`uri`]
+
+
+|===
+
+//[discrete]
+[#identifier]
+=== `identifier`
++++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+| Inherited from
+| xref::class/Resource.adoc[`Resource`]
+
+
+|===
+
+//[discrete]
+[#landing_page]
+=== `landing_page`
++++A web page that provides access to the Data Service and/or additional information.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#landingPage[`dcat:landingPage`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Document.adoc[`Document`]
+
+
+|===
+
+//[discrete]
+[#publisher]
+=== `publisher`
++++An entity (organisation) responsible for making the Data Service available.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/publisher[`dct:publisher`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Agent.adoc[`Agent`]
+
+
+|===
+
+//[discrete]
+[#title]
+=== `title`
++++A name given to the Data Service.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/title[`dct:title`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+

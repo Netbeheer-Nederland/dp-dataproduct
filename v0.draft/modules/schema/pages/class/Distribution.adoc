@@ -1,0 +1,269 @@
+= `Distribution`
+:toclevels: 4
+
+
++++A physical embodiment of the Dataset in a particular format.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| http://www.w3.org/ns/dcat#Distribution[`dcat:Distribution`]
+
+
+
+| Glossary mappings
+a|
+
+[cols="1,5"]
+!===
+! Mapping type ! Term
+
+! http://www.w3.org/2004/02/skos/core#exactMatch[`skos:exactMatch`]
+a! 
+
+https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/Dataset[`nbnl:Dataset`]
+
+
+
+!===
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/Resource.adoc[`Resource`]
+** *`Distribution`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+Distribution {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+DataService {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+
+Distribution -> DataService: access_service
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinality | Type | Description
+
+| <<access_service,`access_service`>>
+| 1
+| xref::class/DataService.adoc[`DataService`]
+| +++A data service that gives access to the distribution of the dataset.+++
+
+| <<linked_schemas,`linked_schemas`>>
+| 1..*
+| xref::enumeration/Standard.adoc[`Standard`]
+| +++An established schema to which the described Distribution conforms. Use the URL for the technical model (schema).+++
+
+| <<access_url,`access_url`>>
+| 0..1
+| https://w3id.org/linkml/Uri[`uri`]
+| +++A URL that gives access to a Distribution of the Dataset.+++
+
+| <<download_url,`download_url`>>
+| 0..1
+| https://w3id.org/linkml/Uri[`uri`]
+| +++A URL that is a direct link to a downloadable file in a given format.+++
+
+| <<format,`format`>>
+| 0..1
+| xref::enumeration/FormatKind.adoc[`FormatKind`]
+| +++The file format, physical medium, or dimensions of the resource.+++
+
+| <<identifier,`identifier`>>
+| 0..1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+|===
+
+'''
+
+
+//[discrete]
+[#access_service]
+=== `access_service`
++++A data service that gives access to the distribution of the dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#accessService[`dcat:accessService`]
+| Cardinality
+| 1
+| Type
+| xref::class/DataService.adoc[`DataService`]
+
+
+|===
+
+//[discrete]
+[#access_url]
+=== `access_url`
++++A URL that gives access to a Distribution of the Dataset.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#accessURL[`dcat:accessURL`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/Uri[`uri`]
+
+
+|===
+
+//[discrete]
+[#download_url]
+=== `download_url`
++++A URL that is a direct link to a downloadable file in a given format.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#downloadURL[`dcat:downloadURL`]
+| Cardinality
+| 0..1
+| Type
+| https://w3id.org/linkml/Uri[`uri`]
+
+
+|===
+
+//[discrete]
+[#format]
+=== `format`
++++The file format, physical medium, or dimensions of the resource.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/format[`dct:format`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/FormatKind.adoc[`FormatKind`]
+
+
+|===
+
+//[discrete]
+[#identifier]
+=== `identifier`
++++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+| Inherited from
+| xref::class/Resource.adoc[`Resource`]
+
+
+|===
+
+//[discrete]
+[#linked_schemas]
+=== `linked_schemas`
++++An established schema to which the described Distribution conforms. Use the URL for the technical model (schema).+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/conformsTo[`dct:conformsTo`]
+| Cardinality
+| 1..*
+| Type
+| xref::enumeration/Standard.adoc[`Standard`]
+
+
+|===
+
+

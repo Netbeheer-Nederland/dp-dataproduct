@@ -1,0 +1,320 @@
+= `Catalog`
+:toclevels: 4
+
+
++++A catalogue or repository that hosts the Datasets or Data Services being described.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Class
+
+| URI
+| http://www.w3.org/ns/dcat#Catalog[`dcat:Catalog`]
+
+
+
+
+|===
+
+== Class hierarchy
+* xref::class/Resource.adoc[`Resource`]
+** *`Catalog`*
+
+
+== Slots
+
+
+
+.Associated classes
+[d2,svg,theme=4]
+----
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+Catalog {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+Dataset {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+Distribution {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+DataService {
+  style {
+    fill: "#cccccc"
+    shadow: true
+  }
+}
+
+
+
+
+Catalog -> Dataset: dataset
+
+
+Catalog -> Distribution: distribution
+
+
+Catalog -> DataService: data_service
+
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+
+[cols="3,1,3,6",width=100%]
+|===
+| Name | Cardinality | Type | Description
+
+| <<contact_point,`contact_point`>>
+| 1
+| xref::enumeration/Kind.adoc[`Kind`]
+| +++Contact information that can be used for sending comments about the Catalog.+++
+
+| <<description,`description`>>
+| 1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++A free-text account of the Catalogue.+++
+
+| <<publisher,`publisher`>>
+| 1
+| xref::enumeration/Agent.adoc[`Agent`]
+| +++An entity responsible for making the Catalog available.+++
+
+| <<title,`title`>>
+| 1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++A name given to the Catalog.+++
+
+| <<data_service,`data_service`>>
+| 1..*
+| xref::class/DataService.adoc[`DataService`]
+| +++A DataService that is part of the Catalog.+++
+
+| <<dataset,`dataset`>>
+| 1..*
+| xref::class/Dataset.adoc[`Dataset`]
+| +++A Dataset that is part of the Catalog.+++
+
+| <<distribution,`distribution`>>
+| 1..*
+| xref::class/Distribution.adoc[`Distribution`]
+| +++A Distribution that is part of the Catalog.+++
+
+| <<identifier,`identifier`>>
+| 0..1
+| xref::enumeration/Literal.adoc[`Literal`]
+| +++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+|===
+
+'''
+
+
+//[discrete]
+[#contact_point]
+=== `contact_point`
++++Contact information that can be used for sending comments about the Catalog.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#contactPoint[`dcat:contactPoint`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Kind.adoc[`Kind`]
+
+
+|===
+
+//[discrete]
+[#data_service]
+=== `data_service`
++++A DataService that is part of the Catalog.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:dataService`
+| Cardinality
+| 1..*
+| Type
+| xref::class/DataService.adoc[`DataService`]
+
+
+|===
+
+//[discrete]
+[#dataset]
+=== `dataset`
++++A Dataset that is part of the Catalog.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://www.w3.org/ns/dcat#dataset[`dcat:dataset`]
+| Cardinality
+| 1..*
+| Type
+| xref::class/Dataset.adoc[`Dataset`]
+
+
+|===
+
+//[discrete]
+[#description]
+=== `description`
++++A free-text account of the Catalogue.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/description[`dct:description`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+//[discrete]
+[#distribution]
+=== `distribution`
++++A Distribution that is part of the Catalog.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| `this:distribution`
+| Cardinality
+| 1..*
+| Type
+| xref::class/Distribution.adoc[`Distribution`]
+
+
+|===
+
+//[discrete]
+[#identifier]
+=== `identifier`
++++The main identifier for the Resource, e.g. the URI or other unique identifier in the context of the Catalogue.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/identifier[`dct:identifier`]
+| Cardinality
+| 0..1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+| Inherited from
+| xref::class/Resource.adoc[`Resource`]
+
+
+|===
+
+//[discrete]
+[#publisher]
+=== `publisher`
++++An entity responsible for making the Catalog available.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/publisher[`dct:publisher`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Agent.adoc[`Agent`]
+
+
+|===
+
+//[discrete]
+[#title]
+=== `title`
++++A name given to the Catalog.+++
+
+[cols="h,4",width=65%]
+|===
+| URI
+| http://purl.org/dc/terms/title[`dct:title`]
+| Cardinality
+| 1
+| Type
+| xref::enumeration/Literal.adoc[`Literal`]
+
+
+|===
+
+
