@@ -1,0 +1,41 @@
+---
+contact_point: 'ritger.teunissen@alliander.com'
+dataset:
+  - access_rights: 'Open Data'
+    conforms_to: http://data.netbeheernederland.nl/data-product/dp-dataproduct
+    contact_point: 'ritger.teunissen@alliander.com'
+    creator: 'Netbeheer Nederland'
+    dataset_distribution:
+      - c3d3912b-cbcb-4968-b451-b88b947f1af3
+    description: 'Op de landelijke capaciteitskaart is te zien waar voldoende
+      transportcapaciteit is en waar tekorten zijn opgetreden. De kaart geeft
+      grootverbruikers en andere geïnteresseerden een beeld van waar in
+      Nederland op de netten ruimte is voor een aansluiting.'
+    language: 'nl-NL'
+    license: 'Open Data'
+    publisher: 'Energie Data Services Nederland (EDSN)'
+    title: 'Capaciteitskaart'
+    version: '1.3.0'
+    identifier: e59d2f24-311b-448b-8028-6e35840b6a50
+distribution:
+  - access_service: 07aacf59-b016-4cd5-b5a1-510f59ed31b4
+    access_url: 'https://data.partnersinenergie.nl/capaciteitskaart/data/congestie_pc6.csv'
+    download_url: 'https://data.partnersinenergie.nl/capaciteitskaart/data/congestie_pc6.csv'
+    format: csv
+    linked_schemas:
+      - http://data.netbeheernederland.nl/data-product/dp-dataproduct/dp_dataproduct.json_schema.json
+    identifier: c3d3912b-cbcb-4968-b451-b88b947f1af3
+data_service:
+  - access_rights: 'Open Data'
+    contact_point: 'ritger.teunissen@alliander.com'
+    creator: 'Netbeheer Nederland'
+    endpoint_description: ''
+    endpoint_url: ''
+    landing_page: 'https://capaciteitskaart.netbeheernederland.nl/'
+    publisher: 'Energie Data Services Nederland (EDSN)'
+    title: 'Capaciteitskaart elektriciteitsnet'
+    identifier: 07aacf59-b016-4cd5-b5a1-510f59ed31b4
+description: 'Netbeheer Nederland (NBNL) dataproducten'
+publisher: 'ritger.teunissen@alliander.com'
+title: 'Netbeheer Nederland (NBNL) Data Catalog'
+identifier: e9275719-5f8e-41db-9d71-2d77d3c25c51

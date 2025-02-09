@@ -8,14 +8,329 @@ imports:
 - linkml:types
 prefixes:
   linkml: https://w3id.org/linkml/
-  cim: https://cim.ucaiug.io/ns#
   dcat: http://www.w3.org/ns/dcat#
   dct: http://purl.org/dc/terms/
-  github: https://github.com/
-  liander: http://data.liander.nl/markt/def#
+  foaf: http://xmlns.com/foaf/0.1/
+  ft: http://publications.europa.eu/resource/authority/file-type/
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
   nbnl: https://begrippen.netbeheernederland.nl/energiesysteembeheer/nl/page/
-  nl: http://iec.ch/TC57/CIM100-Netherlands#
-  owl: http://www.w3.org/2002/07/owl#
   skos: http://www.w3.org/2004/02/skos/core#
+  vcard: http://www.w3.org/2006/vcard/ns#
   this: http://data.netbeheernederland.nl/data-product/dp-dataproduct/def#
-classes: {}
+enums:
+  FormatKind:
+    description:
+    permissible_values:
+      json:
+        meaning: ft:JSON
+      json_ld:
+        meaning: ft:JSON_LD
+      parquet:
+        meaning: ft:PARQUET
+      rdf:
+        meaning: ft:RDF
+      csv:
+        meaning: ft:CSV
+      xlsx:
+        meaning: ft:XLSX
+types:
+  Agent:
+    uri: foaf:Agent
+    base: str
+    description: The Agent class is the class of agents; things that do stuff.
+  Concept:
+    uri: skos:Concept
+    base: str
+    description: A SKOS concept can be viewed as an idea or notion; a unit of
+      thought. However, what constitutes a unit of thought is subjective, and
+      this definition is meant to be suggestive, rather than restrictive.
+  Document:
+    uri: foaf:Document
+    base: str
+    description: The Document class represents those things which are, broadly
+      conceived, ``documents``.
+  Kind:
+    uri: vcard:Kind
+    base: str
+    description: Contact information that can be used for sending comments
+      about the Dataset.
+  LicenseDocument:
+    uri: dct:LicenseDocument
+    base: str
+    description: A legal document giving official permission to do something
+      with a resource.
+  LinguisticSystem:
+    uri: dct:LinguisticSystem
+    base: str
+    description: A system of signs, symbols, sounds, gestures, or rules used in
+      communication. Written, spoken, sign, and computer languages are
+      linguistic systems.
+  Literal:
+    uri: rdfs:Literal
+    base: str
+    description: The class of literal values, eg. textual strings and integers.
+  RightsStatement:
+    uri: dct:RightsStatement
+    base: str
+    description: A statement about the intellectual property rights (IPR)
+      held in or over a resource, a legal document giving official permission
+      to do something with a resource, or a statement about access rights.
+  Standard:
+    uri: dct:Standard
+    base: str
+    description: A reference point against which other things can be evaluated
+      or compared.
+
+classes:
+  Resource:
+    class_uri: dcat:Resource
+    description: Anything described by RDF.
+    attributes:
+      identifier:
+        slot_uri: dct:identifier
+        range: Literal
+        identifier: true
+        multivalued: false
+        description: The main identifier for the Resource, e.g. the URI or other
+          unique identifier in the context of the Catalogue.
+
+  Dataset:
+    class_uri: dcat:Dataset
+    is_a: Resource
+    description: A conceptual entity that represents the information published.
+    exact_mappings:
+      - nbnl:Dataproduct
+    attributes:
+      access_rights:
+        slot_uri: dct:accessRights
+        range: RightsStatement
+        required: true
+        multivalued: false
+        description: Information that indicates whether the Dataset is publicly
+          accessible, has access restrictions or is not public.
+      conforms_to:
+        slot_uri: dct:conformsTo
+        range: Standard
+        required: true
+        multivalued: false
+        description: An established (technical) standard to which the Data
+          Service conforms. Use the URL for the NBNL data product.
+      contact_point:
+        slot_uri: dcat:contactPoint
+        range: Kind
+        required: true
+        multivalued: false
+        description: Contact information that can be used for sending comments
+          about the Dataset.
+      creator:
+        slot_uri: dct:creator
+        range: Agent
+        required: false
+        multivalued: false
+        description: An entity responsible for producing the dataset.
+      dataset_distribution:
+        slot_uri: dcat:distribution
+        range: Distribution
+        required: true
+        multivalued: true
+        description: An available Distribution for the Dataset.
+      description:
+        slot_uri: dct:description
+        range: Literal
+        required: true
+        multivalued: false
+        description: A free-text account of the Dataset.
+      documentation:
+        slot_uri: foaf:page
+        range: Document
+        required: false
+        multivalued: false
+        description: A page or document about this Dataset.
+      language:
+        slot_uri: dct:language
+        range: LinguisticSystem
+        required: false
+        multivalued: false
+        description: A language of the Dataset.
+      license:
+        slot_uri: dct:license
+        range: LicenseDocument
+        required: true
+        multivalued: false
+        description: A licence under which the Distribution is made available.
+      publisher:
+        slot_uri: dct:publisher
+        range: Agent
+        required: true
+        multivalued: false
+        description: An entity responsible for making the resource available.
+      title:
+        slot_uri: dct:title
+        range: Literal
+        required: true
+        multivalued: false
+        description: A name given to the resource.
+      version:
+        slot_uri: dcat:version
+        range: Literal
+        required: true
+        multivalued: false
+        description: The version indicator (name or identifier) of a resource.
+
+  Distribution:
+    class_uri: dcat:Distribution
+    is_a: Resource
+    description: A physical embodiment of the Dataset in a particular format.
+    exact_mappings:
+      - nbnl:Dataset
+    attributes:
+      access_service:
+        slot_uri: dcat:accessService
+        range: DataService
+        required: true
+        multivalued: false
+        description: A data service that gives access to the distribution of
+          the dataset.
+      access_url:
+        slot_uri: dcat:accessURL
+        range: uri
+        required: false
+        multivalued: false
+        description: A URL that gives access to a Distribution of the Dataset.
+      download_url:
+        slot_uri: dcat:downloadURL
+        range: uri
+        required: false
+        multivalued: false
+        description: A URL that is a direct link to a downloadable file in a
+          given format.
+      format:
+        slot_uri: dct:format
+        range: FormatKind
+        required: false
+        multivalued: false
+        description: The file format, physical medium, or dimensions of the
+          resource.
+      linked_schemas:
+        slot_uri: dct:conformsTo
+        range: Standard
+        required: true
+        multivalued: true
+        description: An established schema to which the described Distribution
+          conforms. Use the URL for the technical model (schema).
+
+  DataService:
+    class_uri: dcat:DataService
+    is_a: Resource
+    description: A collection of operations that provides access to one or more
+      datasets or data processing functions.
+    exact_mappings:
+      - nbnl:Dataservice
+    attributes:
+      access_rights:
+        slot_uri: dct:accessRights
+        range: RightsStatement
+        required: false
+        multivalued: false
+        description: Information regarding access or restrictions based on
+          privacy, security, or other policies.
+      contact_point:
+        slot_uri: dcat:contactPoint
+        range: Kind
+        required: true
+        multivalued: false
+        description: Contact information that can be used for sending comments
+          about the Data Service.
+      creator:
+        slot_uri: dct:creator
+        range: Agent
+        required: false
+        multivalued: false
+        description: An entity responsible for producing the dataset.
+      endpoint_description:
+        slot_uri: dcat:endpointDescription
+        range: string
+        required: false
+        multivalued: false
+        description: A description of the services available via the
+          end-points, including their operations, parameters etc.
+      endpoint_url:
+        slot_uri: dcat:endpointURL
+        range: uri
+        required: false
+        multivalued: false
+        description: The root location or primary endpoint of the service.
+      landing_page:
+        slot_uri: dcat:landingPage
+        range: Document
+        required: false
+        multivalued: false
+        description: A web page that provides access to the Data Service and/or
+          additional information.
+      publisher:
+        slot_uri: dct:publisher
+        range: Agent
+        required: true
+        multivalued: false
+        description: An entity (organisation) responsible for making the Data
+          Service available.
+      title:
+        slot_uri: dct:title
+        range: Literal
+        required: true
+        multivalued: false
+        description: A name given to the Data Service.
+
+  Catalog:
+    class_uri: dcat:Catalog
+    is_a: Resource
+    tree_root: true
+    description: A catalogue or repository that hosts the Datasets or Data
+      Services being described.
+    attributes:
+      contact_point:
+        slot_uri: dcat:contactPoint
+        range: Kind
+        required: true
+        multivalued: false
+        description: Contact information that can be used for sending comments
+          about the Catalog.
+      dataset:
+        slot_uri: dcat:dataset
+        range: Dataset
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        description: A Dataset that is part of the Catalog.
+      distribution:
+        slot_uri: this:distribution
+        range: Distribution
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        description: A Distribution that is part of the Catalog.
+      data_service:
+        slot_uri: this:dataService
+        range: DataService
+        required: true
+        multivalued: true
+        inlined_as_list: true
+        description: A DataService that is part of the Catalog.
+      description:
+        slot_uri: dct:description
+        range: Literal
+        required: true
+        multivalued: false
+        description: A free-text account of the Catalogue.
+      publisher:
+        slot_uri: dct:publisher
+        range: Agent
+        required: true
+        multivalued: false
+        description: An entity responsible for making the Catalog available.
+      title:
+        slot_uri: dct:title
+        range: Literal
+        required: true
+        multivalued: false
+        description: A name given to the Catalog.
