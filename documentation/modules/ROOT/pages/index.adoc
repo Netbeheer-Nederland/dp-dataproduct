@@ -1,3 +1,129 @@
 = Dataproduct
 
-#TODO#.
+DCAT (Data Catalog Vocabulary) is a standardized RDF (Resource Description
+Framework)-based vocabulary designed to facilitate the exchange of metadata
+about datasets, especially in the context of data catalogs.
+
+This data product uses DCAT to provide a comprehensive overview of all the
+datasets maintained by Netbeheer Nederland. By leveraging the DCAT standard, it
+ensures that each data product is described consistently, making it easier to
+discover, access, and understand the corresponding datasets. This approach
+enhances the accessibility and usability of the data products managed by
+Netbeheer Nederland for a wide range of stakeholders.
+
+.Data Product
+[d2,svg,theme=4]
+----
+grid-rows: 3
+grid-columns: 3
+
+horizontal-gap: 160
+vertical-gap: 80
+
+vars: {
+  d2-config: {
+    pad: 20
+  }
+}
+
+Catalog.class: dataset
+Dataset.class: dataset
+Distribution.class: dataset
+
+1.class: empty
+2.class: empty
+DataService.class: dataset
+
+Catalog -> Dataset: "dataset"
+Dataset -> Distribution: "dataset_distribution"
+Distribution -> DataService: "access_service"
+
+classes: {
+  empty: {
+    label: ""
+    style: {
+      fill: transparent
+      stroke: transparent
+    }
+  }
+  grid: {
+    style: {
+      fill: "#eccfcb"
+      shadow: true
+    }
+  }
+  enterprise: {
+    style: {
+      fill: "#d1e7c2"
+      shadow: true
+    }
+  }
+  market: {
+    style: {
+      fill: "#fffbef"
+      shadow: true
+    }
+  }
+  dataset: {
+    style: {
+      shadow: true
+    }
+  }
+}
+
+legend: "" {
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+  grid-rows: 3
+  grid-columns: 2
+  grid-gap: 10
+  near: bottom-right
+  iec61968_color: "" {
+    style: {
+      fill: "#d1e7c2"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61968_text: "IEC61968 (Enterprise)" {
+    shape: text
+  }
+  iec61970_color: "" {
+    style: {
+      fill: "#eccfcb"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec61970_text: "IEC61970 (Grid)" {
+    shape: text
+  }
+  iec62325_color: "" {
+    style: {
+      fill: "#fffbef"
+      stroke: black
+      stroke-width: 1
+    }
+    width: 10
+    height: 10
+  }
+  iec62325_text: "IEC62325 (Market)" {
+    shape: text
+  }
+}
+----
+
+This data product follows the DCAT vocabulary, where the top level is the
+``Catalog``, with ``Dataset``s representing a data product. Each ``Dataset``
+has one or more ``Distribution``s and ``DataServices`` associated.
+
+== Additional schemas
+
+* xref:schema:attachment$schemas/json_schema/dp_dataproduct.json_schema.json[JSON schema]
+* xref:schema:attachment$examples/dp_dataproduct.example.json[Example JSON instance data]
